@@ -9,12 +9,12 @@
 ##### Push the Docker Images
 
 	docker login -u lining0806
-	docker push lining0806/github_profile:latest
+	docker push lining0806/github-profile:latest
 	docker logout
 
 ##### Pull the Docker Images
 
-	docker pull lining0806/github_profile:latest
+	docker pull lining0806/github-profile:latest
 
 ##### Run the Docker Container
 	
