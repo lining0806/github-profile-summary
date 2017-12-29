@@ -35,7 +35,7 @@ object GhService {
             override fun run() {
                 repoServices.forEach {
                     try {
-                        it.getRepository("lining0806", "PythonSpiderNotes")
+                        it.getRepository("lining0806", "github-profile-summary")
                         log.info("Pinged client ${clients.indexOf(it.client)} - client.remainingRequests was ${it.client.remainingRequests}")
                     } catch (e: Exception) {
                         log.info("Pinged client ${clients.indexOf(it.client)} - was rate-limited")
