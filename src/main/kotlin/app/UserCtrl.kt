@@ -49,7 +49,7 @@ object UserCtrl {
             return false;
         }
         return try {
-            GhService.watchers.pageWatched(username, 1, 100).first().map { it.name }.contains("PythonSpiderNotes")
+            GhService.watchers.pageWatched(username, 1, 100).first().map { it.name }.contains("github-profile-summary")
         } catch (e: Exception) {
             false
         }
