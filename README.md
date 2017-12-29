@@ -3,7 +3,7 @@
 ## live at [https://github-profile-summary.com/](https://github-profile-summary.com/)
 
 ## screenshot
-![github-profile-summary](https://user-images.githubusercontent.com/1521451/33906301-da659f12-df81-11e7-9fc4-1c47d62e2a95.PNG)
+![screenshot](https://user-images.githubusercontent.com/1521451/34072014-4451dbf6-e280-11e7-90a7-32ad1f313541.PNG)
 
 ## run locally
 * `git clone https://github.com/tipsy/github-profile-summary.git`
@@ -11,25 +11,25 @@
 * `mvn install`
 * `java -jar target/github-profile-summary-1.0-jar-with-dependencies.jar`
 
-If no api-token is set, you only get ~50 requests/hour  
+If no api-token is set, you only get ~50 requests/hour
 
-To run the app with an api-token, first generate a token at 
-[https://github.com/settings/tokens](https://github.com/settings/tokens), 
+To run the app with an api-token, first generate a token at
+[https://github.com/settings/tokens](https://github.com/settings/tokens),
 then launch the jar with the token:
 
-* `java -Doauth-token=your-token -jar target/github-profile-summary-1.0-jar-with-dependencies.jar`
+* `java -Dapi-tokens=your-token -jar target/github-profile-summary-1.0-jar-with-dependencies.jar`
 
+You can use a comma-separated list of tokens to increase your rate-limit
 
-## Docker for visualizing GitHub profiles
+You can build a profile summary for any GitHub profile using `-Dunrestricted=true`:
 
-##### Pull the Docker Images
+* `java -Dunrestricted=true -jar target/github-profile-summary-1.0-jar-with-dependencies.jar`
 
-	docker pull lining0806:/github_profile:latest
+## run locally with docker
 
-##### Run the Docker Container
-	
-	docker run -d --name github_profile -p 7070:7070 lining0806/github_profile:latest
-
-##### Then, you can visit http://your_hostname:7070
-
-Demo： http://www.lining0806.com:7070/user/lining0806
+* `git clone https://github.com/tipsy/github-profile-summary.git`
+* `cd github-profile-summary`
+* `docker build -t github-profile-summary .`
+* `docker run -it --rm --name github-profile-summary -p 7070:7070 github-profile-summary`
+* OR with a token `docker run -it --rm --name github-profile-summary -p 7070:7070 -e "TOKENS=mytoken1,mytoken2" github-profile-summary`
+* browse to http://localhost:7070
